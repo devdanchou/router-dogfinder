@@ -1,17 +1,13 @@
 import React from "react";
-import RoutesList from "./RoutesList";
 import { BrowserRouter } from 'react-router-dom';
-import Nav from "./Nav";
+import DogFinder from "./DogFinder";
 
-const mockDogNames = ['Pluto', 'Goofy']
-
+/** Top level app container. Holds BrowserRouter and renders DogFinder */
 function App() {
   return (
     <div className="App">
-      <h1>Dog Finder!</h1>
       <BrowserRouter>
-        <Nav dogNames={mockDogNames} />
-        <RoutesList />
+        <DogFinder />
       </BrowserRouter>
     </div>
   );
