@@ -3,12 +3,14 @@ import RoutesList from "./RoutesList";
 import { BrowserRouter } from 'react-router-dom';
 import Nav from "./Nav";
 
+const mockDogNames = ['Pluto', 'Goofy']
+
 function App() {
   return (
     <div className="App">
-      <h1>Good luck!</h1>
+      <h1>Dog Finder!</h1>
       <BrowserRouter>
-        <Nav />
+        <Nav dogNames={mockDogNames} />
         <RoutesList />
       </BrowserRouter>
     </div>

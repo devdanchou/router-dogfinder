@@ -13,15 +13,18 @@ function Nav({ dogNames }) {
   };
 
   return (
-    <ul>
-      {dogNames.map(dogName => (
-        <li><NavLink to="/dogs/{dogName}"
-          style={({ isActive }) =>
-            isActive ? activeStyle : undefined
-          }>{dogName}</NavLink>
-        </li>
-      ))};
-    </ul>
+    <div>
+      <ul>
+        {dogNames.map(dogName => (
+          <li><NavLink to={`/dogs/${dogName}`}
+            style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>{`${dogName}`}</NavLink>
+          </li>
+        ))}
+      </ul>
+      <hr />
+    </div>
   );
 }
 
