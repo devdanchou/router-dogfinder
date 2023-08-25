@@ -10,11 +10,14 @@ import DogDetails from "./DogDetails";
  *
  * DogFinder -> RoutesList -> { Routes [Route] }
 */
-function RoutesList({ dogData }) {
+function RoutesList({ dogData, selectedDog }) {
+  console.log("RoutesList being rendered");
   return (
     <Routes>
       <Route path="/dogs" element={<DogList dogData={dogData} />} />
-      <Route path="/dogs/:name" element={<DogDetails dogData={dogData} />} />
+      <Route path="/dogs/:name" element={
+        <DogDetails dogData={dogData} selectedDog={selectedDog} />
+      } />
       <Route path="*" element={<Navigate to="/dogs" />} />
     </Routes>
   );

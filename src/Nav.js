@@ -7,10 +7,15 @@ import { NavLink } from "react-router-dom";
  *
  * App => Nav -> NavLink
  */
-function Nav({ dogNames }) {
+function Nav({ dogNames, setDog }) {
   let activeStyle = {
     fontWeight: "bold",
   };
+
+  function handleClick(evt) {
+    console.log("evt.target.id", evt.target.id);
+    setDog(evt.target.id);
+  }
 
   // TODO: Best practice to add class name to parent div
   return (
@@ -26,10 +31,15 @@ function Nav({ dogNames }) {
         </li>
         {dogNames.map(dogName => (
           // TODO: update to match above formatting of code
-          <li key={dogName} ><NavLink to={`/dogs/${dogName}`}
-            style={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>{`${dogName}`}</NavLink>
+          <li key={dogName} >
+            <NavLink
+              to={`/dogs/${dogName}`}
+              style={({ isActive }) => isActive ? activeStyle : undefined}
+              onClick={handleClick}
+              id={dogName}
+            >
+              {`${dogName}`}
+            </NavLink>
           </li>
         ))}
       </ul>

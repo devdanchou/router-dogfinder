@@ -8,10 +8,12 @@ import { useParams } from "react-router-dom";
  *
  * DogList / Nav -> [Link] -> DogDetails
 */
-function DogDetails({ dogData }) {
+function DogDetails({ dogData, selectedDog }) {
   const { name } = useParams();
   const thisDog = dogData.filter(d => d.name === name)[0];
   // TODO: could use .find() for above since it's only ever 1
+
+  console.log("DogDetails selectedDog:", selectedDog);
 
   return (
     <div>
